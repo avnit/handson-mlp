@@ -50,3 +50,26 @@ See [INSTALL.md](INSTALL.md)
 ## Contributors
 
 I would like to thank everyone [who contributed to this project](https://github.com/ageron/handson-mlp/graphs/contributors), either by providing useful feedback, filing issues or submitting Pull Requests.
+
+<!-- ARCH-DIAGRAM:START -->
+
+## Architecture
+
+> Auto-generated architecture diagram. See [`docs/context-map.md`](docs/context-map.md) for the full context map (core application, containers/cloud, and database connections).
+
+```mermaid
+flowchart TD
+  User([User / Client])
+  App["handson-mlp"]
+  DB0[("Neo4j")]
+  DB1[("Vector DB (Chroma/Pinecone/pgvector/FAISS)")]
+  Img["Container image<br/>(Docker)"]
+  Deploy["GKE / Kubernetes"]
+  User --> App
+  App --> DB0
+  App --> DB1
+  App -.deploy.-> Img
+  Img -.deploy.-> Deploy
+```
+
+<!-- ARCH-DIAGRAM:END -->
